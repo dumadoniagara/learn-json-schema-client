@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from './components/form';
+import './style.scss';
+import {useSelector, useDispatch} from 'react-redux';
+import {
+  incrementNumber,
+  decrementNumber,
+  toZero
+} from './redux/actions';
 
-function App() {
+function App(props) {
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='big-title'>Let's Learn about Json Schema</div>
+      <div>Ini adalah Number :</div>
+      <button onClick={()=>dispatch(incrementNumber())}>Tambah</button>
+      <button onClick={()=>dispatch(decrementNumber())}>Kurang</button>
+      <button onClick={()=>dispatch(toZero())}>Jadikan Nol</button>
+      <div>{state?.count}</div>
+      <Form />
     </div>
   );
 }
