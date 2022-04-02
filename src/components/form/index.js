@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import './style.scss';
+import Input from './input';
+import schema from '../../schema-example.json';
 
 const Form = () => {
-    return(
+    console.log('schema ==', schema);
+    return (
         <div className="form-1">
-            <div className="title">Ini Adalah Form Dengan Json Schema</div>
-            <div className="description">Ini Adalah Deskripsi yang nantinya akan dituliskan oleh BE dari Json Schema</div>
+            <div className="title">{schema?.title}</div>
+            <div>
+                {
+                    Object.keys(schema?.properties).map((key, index) => (
+                        <Input
+                            data={schema?.properties[key]}
+                            key={schema?.properties[key].title}
+                        />
+                    ))
+                }
+            </div>
         </div>
     )
 }

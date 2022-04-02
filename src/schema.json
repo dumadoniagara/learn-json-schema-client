@@ -1,0 +1,62 @@
+{
+    "$id": "https://example.com/address.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "An address similar to http://microformats.org/wiki/h-card",
+    "page_label": "Job application form",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type":"string",
+            "field_label":"Name",
+            "field_placeholder":"Enter Name",
+            "field_type":"text",
+            "field_value":""
+        },
+        "email": {
+            "type":"string",
+            "field_label":"Email",
+            "field_placeholder":"Enter email",
+            "field_type":"text",
+            "field_value":""
+        },
+        "employment":{
+            "type": "string",
+            "field_label":"Employment desired",
+            "field_value":"Part-time",
+            "field_options":[
+                {
+                    "option_label": "Full-time"
+                },
+                {
+                    "option_label": "Part-time"
+                }
+            ],
+            "field_type":"select"
+        },
+        "contact":{
+            "type": "string",
+            "field_label":"Contact No.",
+            "field_placeholder":"Enter your contact No.",
+            "field_type":"text"
+        },
+        "driving_license":{
+            "type": "string",
+            "field_label":"I confirm  have driving license",
+            "field_type":"checkbox",
+            "field_value": "checked"
+        },
+        "driving_license_no":{
+            "type": "string",
+            "field_label":"Driving License No.",
+            "field_type":"text",
+            "field_placeholder":"E.g. 012 345 678"
+        }
+    },
+    "required": [
+        "name",
+        "email",
+        "employment",
+        "contact",
+        "driving_license_no"
+    ]
+}
